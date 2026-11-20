@@ -1,12 +1,9 @@
-# WORKING WITH EBS
-## NAME: PRIYESH S
-## REG NO: 212224040256
+# EBS
+WORKING WITH EBS
 
 ## Aim
 
 To create and configure an Amazon Elastic Block Store (EBS) volume, attach and mount it to an Amazon EC2 instance, create a snapshot backup, and restore the snapshot to a new EBS volume.
-
----
 
 ## Algorithm / Steps
 
@@ -30,116 +27,15 @@ To create and configure an Amazon Elastic Block Store (EBS) volume, attach and m
 18. Mount the restored volume to `/mnt/data-store2`.
 19. Verify that `file.txt` has been successfully restored.
 
----
-
-## Program
-
-### 1. Check Available Storage
-
-```bash
-df -h
-```
-
-### 2. Create an ext3 File System
-
-```bash
-sudo mkfs -t ext3 /dev/sdb
-```
-
-### 3. Create a Mount Directory
-
-```bash
-sudo mkdir /mnt/data-store
-```
-
-### 4. Mount the EBS Volume
-
-```bash
-sudo mount /dev/sdb /mnt/data-store
-```
-
-### 5. Configure Automatic Mounting
-
-```bash
-echo "/dev/sdb   /mnt/data-store ext3 defaults,noatime 1 2" | sudo tee -a /etc/fstab
-```
-
-### 6. View the File System Configuration
-
-```bash
-cat /etc/fstab
-```
-
-### 7. Verify the Mounted Volume
-
-```bash
-df -h
-```
-
-### 8. Create a File in the EBS Volume
-
-```bash
-sudo sh -c "echo some text has been written > /mnt/data-store/file.txt"
-```
-
-### 9. Read the File
-
-```bash
-cat /mnt/data-store/file.txt
-```
-
-### 10. Delete the File
-
-```bash
-sudo rm /mnt/data-store/file.txt
-```
-
-### 11. Verify File Deletion
-
-```bash
-ls /mnt/data-store/
-```
-
-### 12. Create a Mount Directory for the Restored Volume
-
-```bash
-sudo mkdir /mnt/data-store2
-```
-
-### 13. Mount the Restored EBS Volume
-
-```bash
-sudo mount /dev/sdc /mnt/data-store2
-```
-
-### 14. Verify Snapshot Restoration
-
-```bash
-ls /mnt/data-store2/
-```
-
-Expected output:
-
-```text
-file.txt
-```
-
----
-
 ## Outputs
-<img width="1920" height="1080" alt="Screenshot (207)" src="https://github.com/user-attachments/assets/a2f043e7-2a6c-44c3-9faf-8b325fd7cdda" />
-<img width="1920" height="1080" alt="Screenshot (208)" src="https://github.com/user-attachments/assets/65934908-6da8-4804-a116-73a4dac444b4" />
-<img width="1920" height="1080" alt="Screenshot (210)" src="https://github.com/user-attachments/assets/50f9181d-7083-44a2-a203-da1afbf7c9ba" />
-<img width="1920" height="1080" alt="Screenshot (212)" src="https://github.com/user-attachments/assets/cd0c6d19-3d49-4c50-9383-cdcdcc26793b" />
-<img width="1920" height="1080" alt="Screenshot (213)" src="https://github.com/user-attachments/assets/aae3e092-777a-486e-b066-05aead46e1b2" />
-<img width="1920" height="1080" alt="Screenshot (214)" src="https://github.com/user-attachments/assets/31efc700-6ef5-4b82-afde-9b18c3c823d7" />
-<img width="1920" height="1080" alt="Screenshot (215)" src="https://github.com/user-attachments/assets/f4b18667-ca23-4b37-b33a-c5c0cf2b2d7f" />
-
-
-
-
-
-
+<img width="1920" height="1200" alt="Screenshot (233)" src="https://github.com/user-attachments/assets/35ef48f5-52a1-49b2-82f0-a4376975d831" />
+<img width="1920" height="1200" alt="Screenshot (234)" src="https://github.com/user-attachments/assets/16a5ba07-6edb-475e-ab46-ffa2c6dd6594" />
+<img width="1920" height="1200" alt="Screenshot (235)" src="https://github.com/user-attachments/assets/4257b57f-174d-41eb-8656-4ef7af32b608" />
+<img width="1920" height="1200" alt="Screenshot (236)" src="https://github.com/user-attachments/assets/597518b4-5e66-428c-b801-582af48c6646" />
+<img width="1920" height="1200" alt="Screenshot (237)" src="https://github.com/user-attachments/assets/4ab1c577-2235-4c9a-8144-1173f931760e" />
+<img width="1918" height="930" alt="628586671-2f9931e1-fb42-4081-bb52-3c139de21c27" src="https://github.com/user-attachments/assets/e7702316-3fe1-4ced-99a5-c167a913167e" />
+<img width="1920" height="1200" alt="Screenshot (238)" src="https://github.com/user-attachments/assets/b64bdc30-d080-4407-9da2-312211659e71" />
+<img width="1920" height="1200" alt="Screenshot (239)" src="https://github.com/user-attachments/assets/57cbfee1-6773-47ed-9223-b94a3546574f" />
 
 ## Result
 Thus, an Amazon EBS volume was successfully created and attached to an Amazon EC2 instance. The volume was formatted with an ext3 file system, mounted, and used for storing data. An EBS snapshot was successfully created as a backup, and a new EBS volume was restored from the snapshot. The previously deleted file.txt was successfully recovered, demonstrating the backup and restore functionality of Amazon EBS.
